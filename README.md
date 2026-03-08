@@ -144,9 +144,12 @@ try {
     console.log(err.message);   // "The provided URL is not valid"
     console.log(err.requestId); // "req_abc123"
     console.log(err.status);    // 400
+    console.log(err.retryable); // false — whether it's safe to retry
   }
 }
 ```
+
+You can also check `err.retryable` to implement automatic retry logic for transient errors (e.g. `TIMEOUT`, `RATE_LIMITED`).
 
 ## License
 
